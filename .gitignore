@@ -1,0 +1,27 @@
+# Rust
+target/
+Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+.history/
+scratch/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.local
+
+# Logs
+*.log
+
+# CDK
+lambda/cdk.out/
+lambda/.cdk.staging/
+lambda/node_modules/
