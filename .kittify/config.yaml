@@ -1,0 +1,20 @@
+project:
+  uuid: 735878c1-133f-4c2f-a4bc-6dd5a1cef71b
+  slug: handsfree
+  node_id: 609161d99c5c
+  build_id: c7d7eacb-d4ac-58f7-81ff-38e31a9d5753
+mission_type_activations:
+- software-dev
+- documentation
+- research
+- plan
+vcs:
+  type: git
+agents:
+  available:
+  - claude
+  - gemini
+  - opencode
+  - pi
+  auto_commit: true
+  lint_on_edit: false
