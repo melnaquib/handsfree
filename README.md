@@ -1,6 +1,37 @@
 # handsfree
 
-Production MCP workspace built with [PMCP SDK](https://github.com/paiml/rust-mcp-sdk).
+Eyes and hands for any model. Cross-platform, multi-vendor UI introspection and control.
+Desktop (Linux, Windows, macOS), browsers, mobile, embedded, emulators.
+Delivered as: MCP server (core), CLI, skill, host plugin wrappers.
+
+Built on the [PMCP SDK](https://github.com/paiml/rust-mcp-sdk).
+Status: **spec phase**. Specs live in `kitty-specs/`.
+
+## Goals and non-goals
+
+Goals:
+1. One server. Any model. Any vendor. Observe and act on UIs.
+2. Same tool surface on every platform. Drivers differ underneath.
+3. Safe by default: read-only, allowlisted, audited, human approvals the model cannot self-approve.
+
+Non-goals:
+1. Not an agent. No LLM inside. The client model decides.
+2. Not a test framework. Reuse Appium/Playwright ideas where good.
+3. No cloud dependency. Runs local. Remote only by opt-in.
+4. No bypass of OS security (UAC/UIPI, TCC, Wayland portals, FLAG_SECURE). Report limits instead.
+
+## Docs
+
+- Index: [docs/README.md](docs/README.md)
+- Tech stack: [docs/techstack.md](docs/techstack.md)
+- Decisions: [docs/adr/](docs/adr/)
+- Security: [docs/security/](docs/security/)
+- MCP tools: [docs/mcp/tools.md](docs/mcp/tools.md)
+- Testing: [docs/testing.md](docs/testing.md)
+- Runbook: [docs/runbook.md](docs/runbook.md)
+- PMCP/Rust workflow: [docs/tech/pmcp-workflow.md](docs/tech/pmcp-workflow.md)
+- Constitution: [.kittify/constitution/constitution.md](.kittify/constitution/constitution.md)
+- Brand assets: [brand/](brand/)
 
 ## Quick Start
 
@@ -15,13 +46,13 @@ cargo install mcp-tester
 
 ```bash
 # Add your first server
-cargo-pmcp add server calculator --template minimal
+cargo-pmcp add server myserver --template minimal
 
 # Generate and run tests
-cargo-pmcp test --server calculator --generate-scenarios
+cargo-pmcp test --server myserver --generate-scenarios
 
 # Start development server
-cargo run --bin calculator-server
+cargo run --bin handeye-server
 
 # Run quality checks
 make quality-gate
@@ -33,8 +64,8 @@ make quality-gate
 handsfree/
 ├── crates/
 │   ├── server-common/     # Shared HTTP bootstrap (80 LOC)
-│   ├── mcp-calculator-core/  # Calculator business logic
-│   └── calculator-server/    # Calculator binary (6 LOC)
+│   ├── mcp-handeye-core/    # Server business logic (tools, resources)
+│   └── handeye-server/      # Server binary (6 LOC)
 ├── scenarios/             # Test scenarios (YAML)
 ├── lambda/                # Lambda deployment configs
 ├── Cargo.toml             # Workspace manifest
@@ -75,8 +106,8 @@ cargo build --release --bin myserver-server
 
 Each server has two crates:
 
-- **mcp-handsfree-core** (library): Business logic, tools, resources, workflows
-- **handsfree-server** (binary): Just 6 lines calling `server_common::run_http()`
+- **mcp-handeye-core** (library): Business logic, tools, resources, workflows
+- **handeye-server** (binary): Just 6 lines calling `server_common::run_http()`
 
 This pattern:
 - Shares HTTP bootstrap across all servers (DRY)
@@ -105,26 +136,26 @@ cargo install mcp-tester
 
 Generate test scenarios automatically:
 ```bash
-cargo-pmcp test --server calculator --generate-scenarios
+cargo-pmcp test --server handeye --generate-scenarios
 ```
 
 This will:
 1. Build your server
 2. Start it temporarily
 3. Use mcp-tester to discover all tools and capabilities
-4. Generate comprehensive test scenarios in `scenarios/calculator/generated.yaml`
+4. Generate comprehensive test scenarios in `scenarios/handeye/generated.yaml`
 5. Run the scenarios and show results
 
 ### Manual Testing
 
 Run unit tests:
 ```bash
-cargo test -p mcp-calculator-core
+cargo test -p mcp-handeye-core
 ```
 
 Start server and test with curl:
 ```bash
-cargo run --bin calculator-server &
+cargo run --bin handeye-server &
 curl -X POST http://0.0.0.0:3000 \\
   -H "Content-Type: application/json" \\
   -H "Accept: application/json" \\
@@ -146,4 +177,4 @@ curl -X POST http://0.0.0.0:3000 \\
 
 ## License
 
-MIT OR Apache-2.0
+Apache-2.0 (see `LICENSE`)

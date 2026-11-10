@@ -1,0 +1,10 @@
+# Docs the constitution commands load. Format is unverified: check against your spec-kitty version.
+references:
+  - docs/README.md
+  - docs/vision/v1.md
+  - docs/techstack.md
+  - docs/adr/README.md
+  - docs/reference/pmcp-agent-docs/README.md
+  - docs/security/permissions.md
+  - docs/security/threat-model.md
+  - docs/privacy.md

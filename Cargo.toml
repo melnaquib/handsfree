@@ -10,6 +10,7 @@ members = [
 [workspace.package]
 version = "0.1.0"
 edition = "2021"
+rust-version = "1.99"
 license = "Apache-2.0"
 authors = ["Mustafa Elnaquib <melnaquib@gmail.com>"]
 
@@ -18,7 +19,7 @@ authors = ["Mustafa Elnaquib <melnaquib@gmail.com>"]
 pmcp = { version = "2.23", features = ["streamable-http", "schema-generation"] }
 
 # HTTP transport
-axum = "0.7"
+axum = "0.8"
 tokio = { version = "1", features = ["full"] }
 tower-http = { version = "0.6", features = ["trace", "cors"] }
 
@@ -34,10 +35,22 @@ async-trait = "0.1"
 
 # Error handling
 anyhow = "1"
-thiserror = "1"
+thiserror = "2"
 
 # Validation
 validator = { version = "0.18", features = ["derive"] }
+
+# Approved, not used yet. Add `crate = { workspace = true }` to a member only when code needs it.
+# Decisions and reasons: docs/techstack.md. New crates need the owner's approval (constitution).
+gstreamer = "0.25"          # screen capture and video, plugins as needed
+xa11y = "=0.15.4"           # Linux a11y tree, pinned: 0.x moves fast
+cel = "=0.15.0"             # CEL expressions, pinned: breaking changes between minors (ADR 0002)
+confy = "2"                 # read and write the config file
+clap = { version = "4", features = ["derive"] }
+egui = "0.37"
+eframe = "0.37"
+tray-icon = "0.26"
+tracing-appender = "0.2"   # optional: lossless JSONL writer for the audit target only (ADR 0005)
 
 [profile.release]
 opt-level = "z"     # Optimize for size

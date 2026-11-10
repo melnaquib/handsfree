@@ -7,6 +7,7 @@ Cargo.lock
 .vscode/
 .history/
 scratch/
+tmp/
 *.swp
 *.swo
 
@@ -63,3 +64,8 @@ lambda/node_modules/
 .kittify/workspaces/
 .worktrees/
 kitty-ops/ops-index.jsonl
+
+# Local/derived
+.repowise/
+CLAUDE.local.md
+.claude/settings.local.json
