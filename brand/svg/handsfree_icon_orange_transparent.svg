@@ -1,0 +1,9 @@
+<svg viewBox="-133.07 16 342.07 183" width="342" height="183" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>handsfree robot icon, orange on transparent</title>
+  <path d="M70.93,155 L158.09,155 A80,80 0 0 0 158.09,45 L41.91,45 A80,80 0 0 0 20,100" fill="none" stroke="#FF6A13" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M-89.07,155 L-1.91,155 A80,80 0 0 0 20,100" fill="none" stroke="#FF6A13" stroke-width="18" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="70.93" cy="155" r="24" fill="#FF6A13"/>
+  <circle cx="-89.07" cy="155" r="24" fill="#FF6A13"/>
+  <rect x="55" y="74" width="34" height="52" rx="17" fill="#FF6A13"/>
+  <rect x="95" y="74" width="34" height="52" rx="17" fill="#FF6A13"/>
+</svg>
