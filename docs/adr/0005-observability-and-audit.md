@@ -1,6 +1,6 @@
 # 0005. Logging, tracing and audit through `tracing`
 
-* Status: proposed (pending spike)
+* Status: accepted (details verified when needed)
 * Date: 2026-11-10
 * Deciders: Mustafa
 
@@ -39,4 +39,4 @@ Audit differs from logs: it must not be lost, must never contain secrets, is kep
 
 ## Verification
 
-Spike: (1) confirm `tracing-appender` lossless mode and flush on exit, (2) confirm `RUST_LOG=off` does not stop audit, (3) check what pmcp's `log_sanitize` and `wire_trace` redact, (4) check that pmcp middleware sees tool arguments and results.
+No spike. Audit requirements are refined later; verify each detail (lossless writer, filter independence, redaction, middleware visibility) when it is needed.

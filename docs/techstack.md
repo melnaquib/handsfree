@@ -15,7 +15,7 @@ Status: decided unless marked open. New crates need the owner's approval (see th
 | GUI testing | egui_kittest (kittest, AccessKit) | |
 | Screen capture | gstreamer-rs, plugins added as needed | video, KVM capture |
 | Linux a11y | xa11y (exact pin) | other a11y crates only if needed |
-| Config | confy only (figment parked) | read and write; defaults embedded from the owning crate's `resources/` |
+| Config | confy only (figment parked) | [tech/config.md](tech/config.md) |
 | CLI | clap | |
 | Errors | thiserror 2 (libraries), anyhow (binaries) | constitution |
 | MCP testing | mcp-tester, cargo-pmcp scenarios | [pmcp workflow](tech/pmcp-workflow.md) |

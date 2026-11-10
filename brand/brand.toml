@@ -2,7 +2,7 @@
 # App name and license live in Cargo.toml; do not repeat them here.
 tagline    = "Eyes and hands for any model"
 repository = "https://github.com/melnaquib/handsfree"
-# website  = ""   # not set yet
+website    = "https://github.com/melnaquib/handsfree"   # the repo until a site exists
 
 [colors]
 primary = "#FF6A13"   # the orange used in the logo files
